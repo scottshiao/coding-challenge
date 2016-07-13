@@ -1,3 +1,20 @@
+# Dependencies
+1. Python 3.4 (uses Python3 syntax and the statistics library introduced in 3.4)
+2. datetime Python library
+3. json Python library
+4. statistics Python library (new in 3.4)
+5. sys Python library
+6. time Python library
+
+All libraries should be included in the default installation of Python but will require at least Python 3.4 due to Python3 specific syntax and the statistics library.
+
+# Functions
+1. convert_timestamp
+2. connect_actors
+3. evict_edge
+4. calculate_median
+5. write_median
+
 # Table of Contents
 
 1. [Challenge Summary] (README.md#challenge-summary)
