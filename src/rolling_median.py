@@ -179,7 +179,7 @@ def main():
     
             # Output median
             write_median(median, f_out);
-        
+    f_out.close();
 
 if __name__ == "__main__":
     main();
