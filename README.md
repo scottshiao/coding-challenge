@@ -1,5 +1,5 @@
 # Dependencies
-1. Python 3.4 (uses Python3 syntax and the statistics library introduced in 3.4)
+1. Python 3.4
 2. datetime Python library
 3. json Python library
 4. statistics Python library (new in 3.4)
@@ -9,11 +9,46 @@
 All libraries should be included in the default installation of Python but will require at least Python 3.4 due to Python3 specific syntax and the statistics library.
 
 # Functions
-1. convert_timestamp
-2. connect_actors
-3. evict_edge
-4. calculate_median
-5. write_median
+1. [convert_timestamp] (README.md#convert_timestamp)
+2. [connect_actors] (README.md#connect_actors)
+3. [evict_edge] (README.md#evict_edge)
+4. [calculate_median] (README.md#calculate_median)
+5. [write_median] (README.md#write_median)
+
+# Description
+The script parses the JSON message and checks to see if the data is complete.  Once verified, the script will call convert_timestamp() to parse the timestamp into something more usable, and depending on if the latest message moves the time forward, will attempt to evict old edges.  Once old edges are evicted the program checks to see if the new edge falls within the 60s window, and if so, will call connect_actors() to connect it to the graph.  As a final step, the median is calculated and written to an output file.
+
+##convert_timestamp
+* ts_str is a string that contains a timestamp
+* format_str is a string that contains a string format
+* The function parses ts_str for the most common date format (%Y-%m-%dT%H:%M:%SZ) and if not found will default to using strptime()
+* Returns an integer representation of the time
+
+##connect_actors
+* actor_list is an adjacency list storing the actors that are sending money
+* actor1 is one of the two actors in the new transaction
+* actor2 is one of the two actors in the new transaction
+* If an actor is not already in our adjacency list, add the actor
+* Adds an actor to the actor_list and does allow duplicates in order to keep a running count of the edges 
+* Returns an updated list of actors after the connection
+
+##evict_edge
+* payments is a list of the payments that are valid within the 60s window and stores nested lists in the format [[actor1, actor2, pay_time]...]
+* actor_list is an adjacency list storing the actors that are sending money
+* min_time is the integer representation of the minimum time required to be included in the 60s window
+* Returns the updated list of payments that are valid within the last 60s and the list of actors
+
+##calculate_median
+* actor_list is an adjacecny list storing the actors that are sending money
+* The function uses the set() function to get rid of duplicates to obtain an accurate edge count for each actor in the list
+* Returns the calculated median
+
+##write_median
+* median is the calculated median
+* f_out is the output file
+* Writes the median to the output file
+
+
 
 # Table of Contents
 
