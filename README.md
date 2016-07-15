@@ -8,6 +8,16 @@
 
 All libraries should be included in the default installation of Python but will require at least Python 3.4 due to Python3 specific syntax and the statistics library.
 
+Please note that the current run.sh file has the command:
+
+    python ./src/rolling_median.py ./venmo_input/venmo-trans.txt ./venmo_output/output.txt
+    
+I have been testing the script on AWS, which has Python 2.7 installed by default, and instead have been using a version that explicitly uses Python3:
+
+    python3 ./src/rolling_median.py ./venmo_input/venmo-trans.txt ./venmo_output/output.txt
+    
+I have left the python3 version commented out under the assumption that the default python command on the test machine will be running Python3 rather than how AWS is setup.
+
 # Functions
 1. [convert_timestamp] (README.md#convert_timestamp)
 2. [connect_actors] (README.md#connect_actors)
