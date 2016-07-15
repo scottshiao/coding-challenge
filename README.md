@@ -60,19 +60,32 @@ The script parses the JSON message and checks to see if the data is complete.  O
 
 
 # Test Cases
-1. test-1-venmo-trans - base case of one transaction between two actors
-2. test-2-two-trans - base case of two transactions between three actors
-3. test-3-three-trans - case of three transactions between four actors
-4. test-4-four-trans - case of four transactions between four actors
-5. test-5-60s - case of evicting edges out of the 60s window
-6. test-6-ooo - case testing out of order transactions and if the graph is updated properly
-7. test-7-ooo-min - case testing out of order transaction that falls outside the 60s valid window
-8. test-8-ooo-max - case testing out of order transactions with the last transaction advancing the 60s window
-9. test-9-60s-same - case testing if a new transaction that advances the 60s window forward but creates an existing edge is accounted for properly
-10. test-10-missing-data - case testing a variety of missing data fields
-11. test-11-same-edge - case testing if an invalid transaction occurs where the two actors in the edge are the same (A<->A)
-12. test-12-time-window - case testing the 60s window to properly identify exclusive and inclusive transactions
-13. test-13-fake-full - case using the full data set provided (is not verified and therefore is a 'fake' test, not a real test)
+1. test-1-venmo-trans
+Base case of one transaction between two actors
+2. test-2-two-trans
+Base case of two transactions between three actors
+3. test-3-three-trans
+Case of three transactions between four actors
+4. test-4-four-trans
+Case of four transactions between four actors
+5. test-5-60s
+Case of evicting edges out of the 60s window
+6. test-6-ooo
+Case testing out of order transactions and if the graph is updated properly
+7. test-7-ooo-min
+Case testing out of order transaction that falls outside the 60s valid window
+8. test-8-ooo-max
+Case testing out of order transactions with the last transaction advancing the 60s window
+9. test-9-60s-same
+Case testing if a new transaction that advances the 60s window forward but creates an existing edge is accounted for properly
+10. test-10-missing-data
+Case testing a variety of missing data fields
+11. test-11-same-edge
+Case testing if an invalid transaction occurs where the two actors in the edge are the same (A<->A)
+12. test-12-time-window
+Case testing the 60s window to properly identify exclusive and inclusive transactions
+13. test-13-fake-full
+Case using the full data set provided (is not verified and therefore is a 'fake' test, not a real test)
 
 -------------------------------------------------------------------------------------------------------
 
